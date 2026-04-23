@@ -1,6 +1,7 @@
 package com.nonsyncbobbal.jobappliaction.repo;
 
 import com.nonsyncbobbal.jobappliaction.model.JobPost;
+import lombok.Getter;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 
 @Repository
 public class JobRepo {
+    @Getter
     List<JobPost> jobs = new ArrayList<>();
     public JobRepo() {
 
@@ -33,11 +35,10 @@ public class JobRepo {
                 List.of("iOS Development", "Android Development", "Mobile App")));
 
     }
+    private int postId =6;
 
-    public List<JobPost> getJobs() {
-        return jobs;
-    }
     public void addJob(JobPost job) {
+        job.setPostId(postId++);
         jobs.add(job);
     }
 }
